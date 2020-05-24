@@ -2,7 +2,11 @@ module GildedRose where
 
 type GildedRose = [Item]
 
-data Item = Item String Int Int
+type Name    = String
+type SellIn  = Int
+type Quality = Int
+
+data Item = Item Name SellIn Quality
   deriving (Eq)
 
 instance Show Item where

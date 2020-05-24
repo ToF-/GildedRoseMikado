@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: fd4e1d0a3a147acb70f2faff59eed93522ebb257b4f8d3de03828cfdccc3b4e8
+-- hash: 1a0dd406a8098ea8214b680aac2041658923ee6425f87d8f63c8eeee927153e1
 
 name:           GildedRoseMikado
 version:        0.1.0.0
@@ -58,6 +58,7 @@ test-suite GildedRoseMikado-test
   main-is: Spec.hs
   other-modules:
       GildedRoseSpec
+      GoldenMasterSpec
       Paths_GildedRoseMikado
   hs-source-dirs:
       test
@@ -66,4 +67,5 @@ test-suite GildedRoseMikado-test
       GildedRoseMikado
     , base >=4.7 && <5
     , hspec
+    , process
   default-language: Haskell2010
