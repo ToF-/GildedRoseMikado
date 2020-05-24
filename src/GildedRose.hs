@@ -16,6 +16,7 @@ instance Show Item where
 updateQuality :: GildedRose -> GildedRose
 updateQuality = map updateQualityItem
   where
+    updateQualityItem (Item "Sulfuras, Hand of Ragnaros" sellIn quality) = Item "Sulfuras, Hand of Ragnaros" sellIn quality
     updateQualityItem (Item name sellIn quality) =
       let
         quality' =
@@ -24,9 +25,7 @@ updateQuality = map updateQualityItem
           then
             if quality > 0
             then
-              if name /= "Sulfuras, Hand of Ragnaros"
-              then quality - 1
-              else quality
+              quality - 1
             else quality
           else
             if quality < 50
@@ -49,10 +48,7 @@ updateQuality = map updateQualityItem
                  else 0)
             else quality
 
-        sellIn' =
-          if name /= "Sulfuras, Hand of Ragnaros"
-          then sellIn - 1
-          else sellIn
+        sellIn' = sellIn - 1
       in
         if sellIn' < 0
         then
