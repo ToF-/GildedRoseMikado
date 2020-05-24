@@ -67,8 +67,9 @@ updateQuality = map updateQualityItem
                 else (Item name sellIn' quality')
               else (Item name sellIn' quality')
             else (Item name sellIn' (quality' - quality'))
-          else
-            if quality' < 50
-            then (Item name sellIn' (quality' + 1))
-            else (Item name sellIn' quality')
+          else increaseQuality (Item name sellIn' quality')
         else (Item name sellIn' quality')
+
+increaseQuality :: Item -> Item
+increaseQuality (Item name sellIn quality) | quality < 50 = Item name sellIn (succ quality)
+increaseQuality item = item
