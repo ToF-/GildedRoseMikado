@@ -2,9 +2,9 @@ name:                GildedRoseMikado
 version:             0.1.0.0
 github:              "githubuser/GildedRoseMikado"
 license:             BSD3
-author:              "Author name here"
+author:              "Sven Heyll (initial), ToF-"
 maintainer:          "example@example.com"
-copyright:           "2020 Author name here"
+copyright:           "2020 ToF-"
 
 extra-source-files:
 - README.md
@@ -17,18 +17,22 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/GildedRoseMikado#readme>
+description:         Please see the README on GitHub at <https://github.com/ToF-/GildedRoseMikado#readme>
 
 dependencies:
 - base >= 4.7 && < 5
 
 library:
   source-dirs: src
+  ghc-options:
+  - -freverse-errors
+  - -Wall
+  - -Werror
 
 executables:
-  GildedRoseMikado-exe:
+  gilded-rose:
     main:                Main.hs
-    source-dirs:         app
+    source-dirs:         src
     ghc-options:
     - -threaded
     - -rtsopts
@@ -46,3 +50,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - GildedRoseMikado
+    - hspec

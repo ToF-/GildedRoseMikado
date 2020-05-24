@@ -4,16 +4,16 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 58f756419785b5cd413a9dc5df868384c6037e3f58eb9daa8f95a88cf9770f52
+-- hash: fd4e1d0a3a147acb70f2faff59eed93522ebb257b4f8d3de03828cfdccc3b4e8
 
 name:           GildedRoseMikado
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/GildedRoseMikado#readme>
+description:    Please see the README on GitHub at <https://github.com/ToF-/GildedRoseMikado#readme>
 homepage:       https://github.com/githubuser/GildedRoseMikado#readme
 bug-reports:    https://github.com/githubuser/GildedRoseMikado/issues
-author:         Author name here
+author:         Sven Heyll (initial), ToF-
 maintainer:     example@example.com
-copyright:      2020 Author name here
+copyright:      2020 ToF-
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -27,21 +27,26 @@ source-repository head
 
 library
   exposed-modules:
+      GildedRose
       Lib
+      Main
   other-modules:
       Paths_GildedRoseMikado
   hs-source-dirs:
       src
+  ghc-options: -freverse-errors -Wall -Werror
   build-depends:
       base >=4.7 && <5
   default-language: Haskell2010
 
-executable GildedRoseMikado-exe
+executable gilded-rose
   main-is: Main.hs
   other-modules:
+      GildedRose
+      Lib
       Paths_GildedRoseMikado
   hs-source-dirs:
-      app
+      src
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       GildedRoseMikado
@@ -52,6 +57,7 @@ test-suite GildedRoseMikado-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      GildedRoseSpec
       Paths_GildedRoseMikado
   hs-source-dirs:
       test
@@ -59,4 +65,5 @@ test-suite GildedRoseMikado-test
   build-depends:
       GildedRoseMikado
     , base >=4.7 && <5
+    , hspec
   default-language: Haskell2010
