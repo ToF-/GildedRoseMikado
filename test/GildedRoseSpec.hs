@@ -5,9 +5,9 @@ import GildedRose
 
 spec :: Spec
 spec =
-  describe "sellIn decreases after one update" $ do
+  describe "sellIn" $ do
 
-    it "" $
+    it "decreases after one update" $
        let inventory = [Item "foo" 0 0]
            actual = updateQuality inventory
            expected = [Item "foo" (-1) 0]
